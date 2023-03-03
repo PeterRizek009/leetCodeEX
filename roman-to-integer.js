@@ -1,7 +1,6 @@
 
 const RomanToInteger = () => {
 
-
     var RomanInteger = {
         I: 1,
         V: 5,
@@ -13,18 +12,22 @@ const RomanToInteger = () => {
     };
 
 
-    let x = "MCMXCIV";
+    let x = "III";
     let numbers = [...x];
     let result = 0;
 
-    for (let i = 0; i < numbers.length - 1; i++) {
-        const char = numbers[i]
-        result += RomanInteger[char];
-
-        //console.log(RomanInteger[char]);
+    for (let i = 0; i < numbers.length; i++) {
+        if (RomanInteger[numbers[i]] <  RomanInteger[numbers[i+1]]) {
+            result +=(RomanInteger[numbers[i+1]]  - RomanInteger[char]);
+             i += 1;
+        }else{
+            result += RomanInteger[numbers[i]];
+           
+        }
+        
 
     }
-
+       
          console.log(result);
          return result;
 
